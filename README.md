@@ -2,6 +2,8 @@
 Full House Power Monitor PZEM-00T4_V4.0 over RS485 ESPHome
 
 ![IMG_5352](https://github.com/user-attachments/assets/317dc947-84c9-47ea-9de7-4bbbd85619c5)
+<img width="844" height="827" alt="image" src="https://github.com/user-attachments/assets/ae39e0f2-992d-41f8-bbd8-193ef3214136" />
+<img width="653" height="363" alt="image" src="https://github.com/user-attachments/assets/a6cdff37-e6ab-4302-a6f2-ac1ea18ecd64" />
 
 **Features**
 
@@ -20,4 +22,5 @@ Full House Power Monitor PZEM-00T4_V4.0 over RS485 ESPHome
 ![IMG_5266](https://github.com/user-attachments/assets/be4dd5e4-2380-40fb-b94b-3d0b9f88ca11)
 ![IMG_5336](https://github.com/user-attachments/assets/7a4ecd52-e51e-45dc-bd43-5c54c35b7c29)
 ![IMG_5338](https://github.com/user-attachments/assets/566cd64f-8ff9-4950-bbfd-85d9cc900922)
+
 
