@@ -1,0 +1,74 @@
+esp32:
+  #variant: esp32
+  variant: esp32s3
+  flash_size: 16MB
+  framework:
+    #type: arduino
+    type: esp-idf
+
+esphome:
+  name: pzem-004t-v4
+  comment: "ESP32-S3 • RAM 14.4% (47,048/327,680 bytes) • Flash 15.6% (1,264,168/8,126,464 bytes)"
+
+uart:
+  - id: uart_1
+    rx_pin: GPIO4
+    tx_pin: GPIO14
+    baud_rate: 9600
+    debug:
+
+modbus:
+  - uart_id: uart_1
+    id: modbus_1
+
+sensor:
+  # Power Monitor
+  - platform: pzemac
+    id: pzemac_01
+    modbus_id: modbus_1
+    address: 0x01
+    current:
+      name: "PZEM-004T V4 #1 Current"
+    voltage:
+      name: "PZEM-004T V4 #1 Voltage"
+    energy:
+      name: "PZEM-004T V4 #1 Energy"
+    power:
+      name: "PZEM-004T V4 #1 Power"
+    frequency:
+      name: "PZEM-004T V4 #1 Frequency"
+    power_factor:
+      name: "PZEM-004T V4 #1 Power Factor"
+    #update_interval: 5s
+    update_interval: never
+  - platform: pzemac
+    id: pzemac_02
+    modbus_id: modbus_1
+    address: 0x02
+    current:
+      name: "PZEM-004T V4 #2 Current"
+    voltage:
+      name: "PZEM-004T V4 #2 Voltage"
+    energy:
+      name: "PZEM-004T V4 #2 Energy"
+    power:
+      name: "PZEM-004T V4 #2 Power"
+    frequency:
+      name: "PZEM-004T V4 #2 Frequency"
+    power_factor:
+      name: "PZEM-004T V4 #2 Power Factor"
+    #update_interval: 5s
+    update_interval: never
+
+interval:
+  - interval: 1s
+    then:
+      - logger.log:
+          format: "Updating PZEM sensor 1"
+          level: DEBUG
+      - lambda: "id(pzemac_01).update();"
+      - delay: 2s
+      - logger.log:
+          format: "Updating PZEM sensor 2"
+          level: DEBUG
+      - lambda: "id(pzemac_02).update();"
